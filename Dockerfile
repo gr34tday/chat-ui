@@ -58,7 +58,7 @@ ARG SKIP_LLAMA_CPP_BUILD
 ENV BODY_SIZE_LIMIT=15728640
 ENV SKIP_LLAMA_CPP_BUILD=$SKIP_LLAMA_CPP_BUILD
 
-RUN --mount=type=cache,target=/app/.npm \
+RUN --mount=type=cache,id=npm-cache,target=/app/.npm \
     npm set cache /app/.npm && \
     npm ci
 
